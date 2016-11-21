@@ -15,15 +15,11 @@ export class ProductlistComponent implements OnInit {
   products: Array < any > = [];
   mode = 'Observable';
 
-  getProductData() {
+  ngOnInit() {
     this.appService.getProducts()
       .subscribe(
         products => this.products = products,
         error => this.errorMessage = < any > error);
-  }
-
-  ngOnInit() {
-    this.getProductData();
   }
 
   productDetailPage(product) {
