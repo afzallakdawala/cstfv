@@ -1,3 +1,98 @@
-<p>
-  productdetails works!
-</p>
+<div class="row-fluid">
+  <div class="container product_container" itemscope="" itemtype="http://schema.org/Product">
+    <div class="col-xs-12 col-sm-6 big_image_container" id="messages_product_view">
+      <section class="product-slider pull-left col-md-12 nopadding">
+        <div class="big-image">
+          <div id="big1" data-class="gallery_1" class="big-zoom pinch-zoom" style="position: relative; overflow: hidden;">
+            <img itemprop="image" src="http://img1.craftsvilla.com/thumb/500x500{{product.imgUrl}}" alt="">
+            <img src="http://img1.craftsvilla.com/orig{{product.imgUrl}}" class="zoomImg" style="position: absolute; top: -935.494px; left: -2115.34px; opacity: 0; width: 3325px; height: 4725px; border: none; max-width: none; max-height: none;">
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-xs-12 col-sm-5 nopadding">
+      <div class="product_description col-xs-12">
+        <div class="social_media_icons"></div>
+        <h1 class="product-title col-xs-11 nopadding" itemprop="name">
+          {{product.name}}
+        </h1>
+        <p class="col-xs-8 col-sm-8 col-md-12 nopadding vendor_container">Sold by : <span class="bluen"><span class="text-uppercase "><a><span itemprop="brand" *ngIf = "product.vendorDetails">{{product.vendorDetails.vendorName}}</span> </a>
+          </span>
+          </span><span class="rating-box">3.8/ 5 </span></p>
+        <div class="col-xs-12 price_container nopadding">
+          <div class="grayn">
+            <i class="fa fa-rupee"></i>
+            <s>{{product.regularPrice}}</s>
+          </div>
+          <meta itemprop="priceCurrency" content="INR">
+          <div class="col-xs-4 col-sm-4 col-md-3 nomargin nopadding price_details">
+            <i class="fa fa-rupee"></i>
+            <span itemprop="price">{{product.discountedPrice}}</span>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-6">
+            <div class="text-uppercase saved-percent text-center">you save {{product.discountPercentage}} %</div>
+          </div>
+        </div>
+        <div class="col-xs-12 nopadding shipping-container">
+          <div class="col-xs-12 col-sm-6 col-md-6 padleft0">
+            <b>Shipping Cost :</b>
+            <ul class="ship-cost">
+              <li><i class="fa fa-rupee"></i>100 shipping in India </li>
+              <li><i class="fa fa-rupee"></i>1500 outside India </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 padleft0 mobmtop10">
+            <b>Estimated Delivery Time :</b>
+            <div class="pt10">6-8 working days</div>
+          </div>
+        </div>
+        <div class="col-xs-12 buynow-chunk nopadding xs-dspl-no mt20" *ngIf="product.isInStock === 1">
+          <form id="product_addtocart_form">
+            <input type="hidden" name="requestForm" value="add_to_cart">
+            <input type="hidden" name="showNewCheckout" id="showNewCheckout" value="true">
+            <div class="col-xs-6 nopadding">
+              <input type="hidden" name="qty" id="qty" maxlength="12" value="1">
+              <div id="addtocart" class="add_to_cart cart_buy_buttons addtocart_desktop">
+                <span>ADD TO CART</span>
+                <img class="small-loader lazy" src="http://lstatic1.craftsvilla.com/skin/frontend/    default/craftsvilla2015/img/loader.gif">
+              </div>
+            </div>
+            <div class="col-xs-6 nopadding">
+              <button class="col-xs-12 buy_now cart_buy_buttons buyNow_desktop" id="  buynow">
+              <span>BUY NOW</span>
+              <img class="small-loader lazy" src="http://lstatic1.craftsvilla.com/skin/frontend/default/craftsvilla2015/img/loader.gif">
+            </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-xs-12 buynow-chunk nopadding xs-dspl-no mt20" *ngIf="product.isInStock !== 1">
+          <div class="col-xs-8 nopadding mb10p">
+            <div class="out-of-stock-v2">OUT OF STOCK</div>
+          </div>
+          <input id="is_in_stock_hidden" value="0" type="hidden"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 nopadding sku_container mt15">SKU : <span class="text-uppercase "><span class="clrrouge" itemprop="sku">MAMAR69356986250</span> </span>
+        </div>
+        <div class="col-xs-12 col-sm-12" id="codshow1">
+          <div class="col-xs-12 cod_text cod_container nopadding" id="codshow2">
+            <div>Available for <span class="dark-blackn"><b>Cash on Delivery</b></span>
+              <span class="bluen" id="tocheckpincode">(Check Pincode) </span>
+            </div>
+          </div>
+          <div class="col-xs-12 nopadding xs-pdlr-15" id="pin">
+            <div class="col-xs-12 col-sm-5 nopadding cod-txt" id="cod-txt">Check for cash on delivery at</div>
+            <div class="col-xs-12 col-sm-7 nopadding" id="pincheckcontainer">
+              <form action="#pincode" method="POST" id="pintextbox" class="couponcode-form center-block">
+                <input type="text" name="pincode_value" id="pincode_value" placeholder="Enter Pin Code" class="col-xs-8 col-sm-8 pull-left chk-input" required="">
+                <button class="col-xs-4 col-sm-4 pull-left craftsvilla_pincode check_btn" type="submit" id="submitpincode">CHECK</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+            <div id="pincode" class="col-xs-12 nopadding text-center"></div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -8,7 +8,7 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 export const router: Routes = [
   {path: '', redirectTo: 'products', pathMatch: 'full'},
   {path: 'products', component: ProductlistComponent},
-  {path: 'products/:id', component: ProductdetailsComponent}
+  {path: 'product/:id', component: ProductdetailsComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
