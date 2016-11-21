@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from '../app.service'
-import { Router, RouterModule } from '@angular/router';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  AppService
+} from '../app.service'
+import {
+  Router,
+  RouterModule
+} from '@angular/router';
+
 
 @Component({
   selector: 'app-productlist',
@@ -8,26 +17,25 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ProductlistComponent implements OnInit {
 
- constructor( private appService: AppService, private router: Router ) { }
+  constructor(private appService: AppService, private router: Router) {}
 
   errorMessage: string;
-  products:Array<any> = [];
+  products: Array < any > = [];
   mode = 'Observable';
 
-  getProducts() {
+  getProductData() {
     this.appService.getProducts()
       .subscribe(
         products => this.products = products,
-        error =>  this.errorMessage = <any>error);
+        error => this.errorMessage = < any > error);
   }
 
   ngOnInit() {
-    this.getProducts();
+    this.getProductData();
   }
 
   productDetailPage(product) {
     this.router.navigate(['/product', product.productId]);
   }
-  
 
 }
