@@ -1,17 +1,7 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  Http,
-  Response
-} from '@angular/http';
-import {
-  Headers,
-  RequestOptions
-} from '@angular/http';
-import {
-  Observable
-} from 'rxjs/Observable';
+import { Injectable} from '@angular/core';
+import { Http, Response} from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
@@ -27,7 +17,7 @@ export class AppService {
       .catch(this.handleError);
   }
 
-  public getProduct(id: String) {
+  getProduct(id: String) {
     return this.getProducts()
       .map(products => products.filter(product => product.productId === id)[0]);
   }

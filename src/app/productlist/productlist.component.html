@@ -1,6 +1,7 @@
 <div class="col-xs-12 products-section feed-products-section" id="main">
   <div class="center-product">
     <div class="col-xs-6 col-md-3 width20p product mob_padding" *ngFor="let product of products">
+      <a href='javascript:void(0)'>
       <div class="product-image-container">
         <a title="" (click)="productDetailPage(product)">
           <img alt="" class="product-image" src="http://img1.craftsvilla.com/thumb/216x216{{product.imgUrl}}">
@@ -27,6 +28,7 @@
       <div class="wishit" onclick="">
         <div class="wishitIcon"><i class="icon-small icon-wish" id="wishicon-3566887"></i></div>
       </div>
+    </a>
     </div>
   </div>
 </div>
