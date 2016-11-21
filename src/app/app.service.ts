@@ -12,16 +12,12 @@ export class AppService {
   constructor(private http: Http) {}
 
   getProducts(): Observable < any > {
-    return this.http.get(this.productListUrl)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.get(this.productListUrl).map(this.extractData).catch(this.handleError);
   }
 
-  getProduct(id: String) {
-    return this.getProducts()
-      .map(products => products.filter(product => product.productId === id)[0]);
+  getProductById(id: String) {
+    return this.getProducts().map(products => products.filter(product => product.productId === id)[0]);
   }
-
 
   private extractData(res: Response) {
     let body = res.json();
